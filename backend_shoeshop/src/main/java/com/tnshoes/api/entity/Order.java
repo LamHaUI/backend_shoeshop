@@ -54,8 +54,8 @@ public class Order {
 	@JoinColumn(name = "status")
 	private OrderStatus status; 
 	
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<OrderDetail> orderDetails;
+//	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+//	private Set<OrderDetail> orderDetails;
 	
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<OrderHistory> orderHistorys;

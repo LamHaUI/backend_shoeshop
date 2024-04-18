@@ -32,7 +32,7 @@ public class OrderHistory {
 	private Order order;
 	
 	@Id
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING) 
 	@JoinColumn(name = "action")
 	private OrderAction action;
 	

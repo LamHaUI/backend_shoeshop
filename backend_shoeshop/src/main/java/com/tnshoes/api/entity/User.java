@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.CascadeType;
@@ -36,10 +37,15 @@ public class User {
 
 	private String avatar;
 
+	@NaturalId
+    @Column(nullable = false)
 	private String email;
 
+	@NaturalId
+    @Column(nullable = false)
 	private Integer phone;
 
+    @Column(nullable = false)
 	private String password;
 
 	@CreationTimestamp

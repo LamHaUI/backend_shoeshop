@@ -1,7 +1,7 @@
 package com.tnshoes.api.entity.composite_key;
 
 import com.tnshoes.api.entity.Order;
-import com.tnshoes.api.entity.ProductPrice;
+import com.tnshoes.api.entity.ProductItem;
 
 import lombok.Data;
 
@@ -10,6 +10,6 @@ public class OrderDetailId {
 
 	private Order order;
 
-	private ProductPrice product;
+	private ProductItem product;
 
 }

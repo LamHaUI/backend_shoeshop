@@ -24,10 +24,12 @@ public class OrderDetail {
 	@Id
 	@ManyToOne
 	@JoinColumn(name = "product_id")
-	private ProductPrice product;
+	private ProductItem product;
 	
 	@JoinColumn(name = "qty_sell")
 	private Long qtySell;
+	
+	private Double price;
 	
 	@JoinColumn(name = "number_star")
 	private Integer numberStar;

@@ -19,12 +19,7 @@ public class ProductImage {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name = "product_id"),
-		@JoinColumn(name = "size_id"),
-		@JoinColumn(name = "color_id")
-	})
+	@JoinColumn(name = "product_id")
 	private ProductItem product;
 	
 	private String image;

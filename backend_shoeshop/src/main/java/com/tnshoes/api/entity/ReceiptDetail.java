@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -24,11 +23,7 @@ public class ReceiptDetail {
 
 	@Id
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name = "product_id"),
-		@JoinColumn(name = "size_id"),
-		@JoinColumn(name = "color_id")
-	})
+	@JoinColumn(name = "product_id")
 	private ProductItem product;
 	
 	private Long quantity;

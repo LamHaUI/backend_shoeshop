@@ -1,5 +1,6 @@
 package com.tnshoes.api.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
@@ -7,7 +8,6 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,7 +16,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -25,7 +24,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable{
 
 	@Id
 	@GeneratedValue
@@ -63,9 +62,6 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name = "updater_id")
 	private User updater;
-
-	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<ProductItem> productItems;
 	
 	@ManyToMany(mappedBy = "favoriteProducts",fetch = FetchType.EAGER)
 	private Set<User> customers;
