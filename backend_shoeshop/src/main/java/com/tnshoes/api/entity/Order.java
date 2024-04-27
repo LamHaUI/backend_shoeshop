@@ -1,7 +1,6 @@
 package com.tnshoes.api.entity;
 
 import java.util.Set;
-import java.util.UUID;
 
 import com.tnshoes.api.common.OrderStatus;
 import com.tnshoes.api.common.PaymentMethod;
@@ -11,27 +10,34 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "orders")
 public class Order {
 
 	@Id
-	@GeneratedValue
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private String id;
 
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	private User customer;
 	
-	private Integer phone;
+	private String phone;
 
 	@JoinColumn(name = "id_address")
 	private String idAddress;

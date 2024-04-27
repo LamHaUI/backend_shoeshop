@@ -2,7 +2,6 @@ package com.tnshoes.api.entity;
 
 import java.time.LocalDateTime;
 import java.util.Set;
-import java.util.UUID;
 
 import com.tnshoes.api.common.TypeValue;
 
@@ -11,21 +10,28 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "sales")
 public class Sale {
 
 	@Id
-	@GeneratedValue
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private String id;
 	
 	private String name;
 	

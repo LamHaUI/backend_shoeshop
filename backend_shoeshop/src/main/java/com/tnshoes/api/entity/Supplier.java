@@ -1,25 +1,31 @@
 package com.tnshoes.api.entity;
 
 import java.util.Set;
-import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "suppliers")
 public class Supplier {
 
 	@Id
-	@GeneratedValue
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private String id;
 
 	private String name;
 
@@ -27,7 +33,7 @@ public class Supplier {
 
 	private String email;
 
-	private Integer phone;
+	private String phone;
 
 	@JoinColumn(name = "id_address")
 	private String idAddress;

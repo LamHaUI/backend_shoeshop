@@ -1,6 +1,6 @@
 package com.tnshoes.api.repository;
 
-import java.util.UUID;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.tnshoes.api.entity.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, UUID>{
+public interface UserRepository extends JpaRepository<User, String>{
 
+	boolean existsByEmail(String email);
+    Optional<User> findByEmail(String email);
 }
