@@ -1,5 +1,5 @@
 # Spring-eshop
-Traditional server rendered e-commerce store built on Spring Framework for learning purposes. [Live demo here](https://shoepp.herokuapp.com)
+Traditional server rendered e-commerce store built on Spring Framework for learning purposes.
 
 ### TECHNOLOGIES:
 * Java 8
